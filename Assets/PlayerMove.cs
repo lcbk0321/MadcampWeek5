@@ -22,7 +22,20 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.z < -7.7f)
+        {
+            transform.position = new Vector3 (transform.position.x, transform.position.y, -7.7f);
+        }
+
+        if (transform.position.x > 32.108f)
+        {
+            transform.position = new Vector3(32.108f, transform.position.y, transform.position.z);
+        }
+
+        if(transform.position.x < -32.28)
+        {
+            transform.position = new Vector3(-32.28f, transform.position.y, transform.position.z);
+        }
     }
 
     private void FixedUpdate()
@@ -64,6 +77,7 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position += new Vector3(0, distance, 0);
         }
+
 
         
     }
