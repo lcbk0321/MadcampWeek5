@@ -61,12 +61,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\FollowPlayer.cs" />
+    <Compile Include="Assets\FollowPlayer2.cs" />
     <Compile Include="Assets\FollowPlayer3.cs" />
+    <Compile Include="Assets\LightMap2.cs" />
+    <Compile Include="Assets\MazeComponentRightleft.cs" />
+    <Compile Include="Assets\MazeComponentUpdown.cs" />
     <Compile Include="Assets\MonsterMoveStage1.cs" />
     <Compile Include="Assets\PlayerMove.cs" />
     <Compile Include="Assets\PlayerMove3.cs" />
     <Compile Include="Assets\PlayerMoveMap2.cs" />
     <Compile Include="Assets\Sight2D.cs" />
+    <Compile Include="Assets\stage1_control.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/q/Desktop/week5/MadCampLastWeek/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

@@ -37,6 +37,15 @@ public class PlayerMove : MonoBehaviour
             transform.position = new Vector3(-32.28f, transform.position.y, transform.position.z);
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if(collision.gameObject.tag!="floor" || collision.gameObject.tag!="Untagged")
+        Debug.Log(collision.gameObject.tag);
+    }
 
     private void FixedUpdate()
     {

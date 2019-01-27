@@ -8,6 +8,7 @@ public class MonsterMoveStage1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if (right == 0)
         {
             transform.position += new Vector3(0.1f, 0, 0);

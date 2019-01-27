@@ -20,9 +20,12 @@ public class Sight2D : MonoBehaviour
 
     private float m_horizontalViewHalfAngle = 0f; // 시야각의 절반 값
 
+    public GameObject m_control;
+
     public GameObject m_monster;
     Mesh mesh;
     MeshFilter meshFilter;
+    MeshCollider meshCollider;
     Vector3[] vertices;
     int[] triangles;
     Vector2[] uvs;
@@ -55,6 +58,7 @@ public class Sight2D : MonoBehaviour
     {
         mesh = new Mesh();
         meshFilter = (MeshFilter)GetComponent("MeshFilter");
+        meshCollider = (MeshCollider)GetComponent("MeshCollider");
         transform.position = m_monster.transform.position;
         movement = m_monster.GetComponent<MonsterMoveStage1>();
     }
@@ -64,7 +68,7 @@ public class Sight2D : MonoBehaviour
     {
         if (movement.right == 0)
         {
-            transform.position = m_monster.transform.position + new Vector3(1.1f, 0, 0);
+            transform.position = m_monster.transform.position + new Vector3(1.1f, -0.2f, 0);
             while (m_viewRotateZ != -90)
             {
                 m_viewRotateZ -= 1f;
@@ -72,7 +76,7 @@ public class Sight2D : MonoBehaviour
         }
         else
         {
-            transform.position = m_monster.transform.position - new Vector3(1.1f, 0, 0);
+            transform.position = m_monster.transform.position - new Vector3(1.1f, 0.2f, 0);
             while (m_viewRotateZ != 90)
             {
                 m_viewRotateZ += 1f;
@@ -140,12 +144,9 @@ public class Sight2D : MonoBehaviour
             vertices[beginNumber].y = 0;
             vertices[beginNumber].z = beginSin * m_viewRadius;
 
-            Debug.Log("begin (x, z) = " + vertices[beginNumber].x + "," + vertices[beginNumber].z);
             vertices[endNumber].x = endCos * m_viewRadius;
             vertices[endNumber].y = 0;
             vertices[endNumber].z = endSin * m_viewRadius;
-
-            Debug.Log("end (x, z) = " + vertices[endNumber].x + "," + vertices[endNumber].z);
 
             triangles[triangleNumber] = 0;
 
@@ -189,6 +190,9 @@ public class Sight2D : MonoBehaviour
 
         meshFilter.sharedMesh = mesh;
         meshFilter.sharedMesh.name = "CircularSectorMesh";
+        meshCollider.sharedMesh = mesh;
+        meshCollider.sharedMesh.name = "CircularSectorMesh";
+        //FindViewTargets();
     }
 
     private void Awake()
@@ -196,7 +200,7 @@ public class Sight2D : MonoBehaviour
         m_horizontalViewHalfAngle = m_horizontalViewAngle * 0.5f;
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         if (m_bDebugMode)
         {
@@ -213,19 +217,17 @@ public class Sight2D : MonoBehaviour
             Debug.DrawRay(originPos, horizontalLeftDir * m_viewRadius, Color.cyan);
             Debug.DrawRay(originPos, lookDir * m_viewRadius, Color.green);
             Debug.DrawRay(originPos, horizontalRightDir * m_viewRadius, Color.cyan);
-
-
-            FindViewTargets();
+            
         }
-    }
+    }*/
 
-    public Collider2D[] FindViewTargets()
+    /*public Collider2D[] FindViewTargets()
     {
         hitedTargetContainer.Clear();
 
         Vector3 originPos = transform.position;
         Collider2D[] hitedTargets = Physics2D.OverlapCircleAll(originPos, m_viewRadius, m_viewTargetMask);
-
+        Debug.Log(hitedTargets.Length);
         foreach (Collider2D hitedTarget in hitedTargets)
         {
             Vector3 targetPos = hitedTarget.transform.position;
@@ -247,6 +249,7 @@ public class Sight2D : MonoBehaviour
                         Debug.DrawLine(originPos, rayHitedTarget.point, Color.yellow);
                         Debug.Log("hit a player");
                     }
+                    Debug.Log("hit a player");
                 }
                 else
                 {
@@ -262,12 +265,25 @@ public class Sight2D : MonoBehaviour
             return hitedTargetContainer.ToArray();
         else
             return null;
-    }
+    }*/
 
     // -180~180의 값을 Up Vector 기준 Local Direction으로 변환시켜줌.
     private Vector3 AngleToDirZ(float angleInDegree)
     {
         float radian = (angleInDegree - transform.eulerAngles.y) * Mathf.Deg2Rad;
         return new Vector3(Mathf.Sin(radian), 0, Mathf.Cos(radian));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Debug.Log("hit player");
+            m_control.GetComponent<stage1_control>().Reset();
+        }
+        else if (other.tag == "wall")
+        {
+            Debug.Log("hit_wall");
+        }
     }
 }
