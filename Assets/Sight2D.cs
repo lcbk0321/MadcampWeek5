@@ -9,7 +9,7 @@ public class Sight2D : MonoBehaviour
     [Header("View Config")]
     [Range(0f, 360f)]
     [SerializeField] private float m_horizontalViewAngle = 0f; // 시야각
-    [SerializeField] private float m_viewRadius = 1f; // 시야 범위
+    [SerializeField] private float m_viewRadius = 8; // 시야 범위
     [Range(-180f, 180f)]
     [SerializeField] private float m_viewRotateZ = 90f; // 시야각의 회전값
 
@@ -283,7 +283,14 @@ public class Sight2D : MonoBehaviour
         }
         else if (other.tag == "wall")
         {
-            Debug.Log("hit_wall");
+            Vector3 targetPos = other.transform.position;
+            Vector3 dir = (targetPos - transform.position).normalized;
+            Vector3 lookDir = AngleToDirZ(m_viewRotateZ);
+            Debug.Log("여기는벽");
+            // 아래 두 줄은 위의 코드와 동일하게 동작함. 내부 구현도 동일
+            float dot = Vector3.Dot(lookDir, dir);
+            float angle = Mathf.Acos(dot) * Mathf.Rad2Deg;
+            m_viewRadius = Mathf.Pow(Mathf.Pow(targetPos.x, 2) + Mathf.Pow(targetPos.y, 2) + Mathf.Pow(targetPos.z, 2), 0.5f);
         }
     }
 }

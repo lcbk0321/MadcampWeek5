@@ -22,7 +22,7 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.z < -7.7f)
+        if (transform.position.z < -7.7f && transform.position.x < 30 )
         {
             transform.position = new Vector3 (transform.position.x, transform.position.y, -7.7f);
         }

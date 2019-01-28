@@ -70,6 +70,7 @@
     <Compile Include="Assets\PlayerMove.cs" />
     <Compile Include="Assets\PlayerMove3.cs" />
     <Compile Include="Assets\PlayerMoveMap2.cs" />
+    <Compile Include="Assets\Resources\Gradient.cs" />
     <Compile Include="Assets\Sight2D.cs" />
     <Compile Include="Assets\stage1_control.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
