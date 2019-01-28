@@ -67,6 +67,9 @@
     <Compile Include="Assets\MazeComponentRightleft.cs" />
     <Compile Include="Assets\MazeComponentUpdown.cs" />
     <Compile Include="Assets\MonsterMoveStage1.cs" />
+    <Compile Include="Assets\MonsterMoveStage2_1.cs" />
+    <Compile Include="Assets\MonsterMoveStage2_2.cs" />
+    <Compile Include="Assets\MonsterMoveStage2_3.cs" />
     <Compile Include="Assets\PlayerMove.cs" />
     <Compile Include="Assets\PlayerMove3.cs" />
     <Compile Include="Assets\PlayerMoveMap2.cs" />
