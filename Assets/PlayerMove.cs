@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerMove : MonoBehaviour
     //public bool Up;
     //public bool Down;
     public Animator animator;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,11 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.z < -7.7f && transform.position.x < 30 )
+        if(transform.position.y < -7)
+        {
+            SceneManager.LoadScene("Map2");
+        }
+        if (transform.position.z < -7.7f && transform.position.x < 29.5 )
         {
             transform.position = new Vector3 (transform.position.x, transform.position.y, -7.7f);
         }
@@ -36,15 +42,6 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position = new Vector3(-32.28f, transform.position.y, transform.position.z);
         }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(collision.gameObject.tag);
-    }
-    private void OnCollisionStay(Collision collision)
-    {
-        if(collision.gameObject.tag!="floor" || collision.gameObject.tag!="Untagged")
-        Debug.Log(collision.gameObject.tag);
     }
 
     private void FixedUpdate()
@@ -86,8 +83,6 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position += new Vector3(0, distance, 0);
         }
-
-
-        
+       
     }
 }

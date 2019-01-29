@@ -60,22 +60,43 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\changetoscene1.cs" />
+    <Compile Include="Assets\changetoscene2.cs" />
+    <Compile Include="Assets\changetoscene3.cs" />
+    <Compile Include="Assets\digdaSight.cs" />
+    <Compile Include="Assets\DigdaSightmap1.cs" />
+    <Compile Include="Assets\digdasightMap2.cs" />
+    <Compile Include="Assets\dontstopthemusic.cs" />
     <Compile Include="Assets\FollowPlayer.cs" />
     <Compile Include="Assets\FollowPlayer2.cs" />
     <Compile Include="Assets\FollowPlayer3.cs" />
+    <Compile Include="Assets\jumping.cs" />
     <Compile Include="Assets\LightMap2.cs" />
     <Compile Include="Assets\MazeComponentRightleft.cs" />
     <Compile Include="Assets\MazeComponentUpdown.cs" />
+    <Compile Include="Assets\Mob2_right.cs" />
+    <Compile Include="Assets\Mob2Movement.cs" />
     <Compile Include="Assets\MonsterMoveStage1.cs" />
     <Compile Include="Assets\MonsterMoveStage2_1.cs" />
     <Compile Include="Assets\MonsterMoveStage2_2.cs" />
     <Compile Include="Assets\MonsterMoveStage2_3.cs" />
+    <Compile Include="Assets\monstersightMap2.cs" />
+    <Compile Include="Assets\monstersightMap2_2.cs" />
+    <Compile Include="Assets\monstersightMap2_3.cs" />
+    <Compile Include="Assets\Moster_right.cs" />
     <Compile Include="Assets\PlayerMove.cs" />
     <Compile Include="Assets\PlayerMove3.cs" />
     <Compile Include="Assets\PlayerMoveMap2.cs" />
     <Compile Include="Assets\Resources\Gradient.cs" />
-    <Compile Include="Assets\Sight2D.cs" />
+    <Compile Include="Assets\Scripts\CS.cs" />
+    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\Sight2D.cs" />
     <Compile Include="Assets\stage1_control.cs" />
+    <Compile Include="Assets\toLevel1.cs" />
+    <Compile Include="Assets\toLevel2.cs" />
+    <Compile Include="Assets\toLevel3.cs" />
+    <Compile Include="Assets\toMapSelection.cs" />
+    <Compile Include="Assets\toMMM.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/q/Desktop/week5/MadCampLastWeek/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

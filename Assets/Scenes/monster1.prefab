@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3160376538521711481}
   - component: {fileID: 3160376538521711486}
   - component: {fileID: 3160376538521711487}
-  - component: {fileID: 3160376538521711483}
   - component: {fileID: 3160376538521711482}
+  - component: {fileID: 2717614754208949793}
   m_Layer: 0
   m_Name: monster1
   m_TagString: Untagged
@@ -115,19 +115,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.15, y: 1.05, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3160376538521711483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3160376538521711484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b7d94600f44dd4429f7003f0145c0f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  right: 0
 --- !u!54 &3160376538521711482
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -144,3 +131,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2717614754208949793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3160376538521711484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5b5801c0635ee4d93ee7e0d4226039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  right: 0

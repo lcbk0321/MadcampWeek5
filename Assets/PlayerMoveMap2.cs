@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMoveMap2 : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class PlayerMoveMap2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(transform.position.y < -5)
+        {
+            SceneManager.LoadScene("Map3");
+        }
         //if (transform.position.z < -7.7f)
         //{
         //    transform.position = new Vector3(transform.position.x, transform.position.y, -7.7f);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove3 : MonoBehaviour
 {
@@ -22,12 +23,12 @@ public class PlayerMove3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.z < -31f)
+        if (transform.position.z < -31f )
         {
             transform.position = new Vector3(transform.position.x, 0, -31f);
         }
 
-        if (transform.position.z > 14.6f)
+        if (transform.position.z > 14.6f && transform.position.x < 15.8)
         {
             transform.position = new Vector3(transform.position.x, 0, 14.6f);
         }
@@ -40,6 +41,10 @@ public class PlayerMove3 : MonoBehaviour
         if (transform.position.x < -32.28)
         {
             transform.position = new Vector3(-32.28f, transform.position.y, transform.position.z);
+        }
+        if (transform.position.y < -5)
+        {
+            SceneManager.LoadScene("ending");
         }
     }
 
@@ -83,7 +88,13 @@ public class PlayerMove3 : MonoBehaviour
             transform.position += new Vector3(0, distance, 0);
         }
 
+    }
 
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag.Equals("Monster"))
+        {
+            SceneManager.LoadScene("Map3");
+        }
     }
 }
